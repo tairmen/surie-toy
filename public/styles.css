@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-image: url('surie2.jpg'); /* Фоновое изображение */
+    background-image: url('aydersurie.jpg'); /* Фоновое изображение */
     background-size: cover; /* Полное покрытие */
     background-position: center;
     background-attachment: fixed; /* Фиксируем фон */
@@ -94,10 +94,11 @@ h2 {
     display: flex;
     gap: 10px;
     justify-content: center;
+    flex-wrap: wrap; /* Позволяет изображениям переноситься на следующую строку */
 }
 
 .gallery img {
-    width: 200px; /* Больше изображения */
+    width: 200px;
     height: 200px;
     object-fit: cover;
     border-radius: 8px;
@@ -107,6 +108,16 @@ h2 {
 .gallery img:hover {
     transform: scale(1.05);
 }
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    .gallery img {
+        width: 100%; /* Изображения занимают всю ширину блока */
+        height: auto; /* Высота автоматически подстраивается */
+        margin-bottom: 10px; /* Отступ между изображениями */
+    }
+}
+
 
 #contact {
     font-size: 1.2em;
