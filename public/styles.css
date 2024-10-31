@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f9f5f2;
+    line-height: 1.6;
+}
+
+header {
+    background-image: url('surie2.jpg'); /* Фоновое изображение */
+    background-size: cover; /* Полное покрытие */
+    background-position: center;
+    background-attachment: fixed; /* Фиксируем фон */
+    text-align: center;
+    color: #fff; /* Белый текст для контраста */
+    padding: 100px 20px; /* Увеличенные отступы */
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный темный слой */
+    z-index: 1;
+}
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em; /* Увеличенный шрифт */
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+header p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5em;
+    margin-top: 15px;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+header button {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #b5651d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #ff7f50;
+}
+
+section {
+    padding: 40px; /* Увеличенный отступ */
+    margin: 20px auto; /* Больше пространства вокруг */
+    max-width: 1000px; /* Шире блоки */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центрируем текст */
+    font-family: 'Playfair Display', serif; /* Шрифт для текста внутри блоков */
+    font-size: 1.2em;
+    color: #6b4f4b; /* Цвет текста */
+}
+
+h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #b5651d;
+    font-size: 2.5em; /* Увеличиваем заголовки */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 200px; /* Больше изображения */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+#contact {
+    font-size: 1.2em;
+}

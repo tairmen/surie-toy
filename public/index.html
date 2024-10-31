@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наша Свадьба</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header data-aos="fade-down">
+        <h1>Наша Свадьба</h1>
+        <p>Присоединяйтесь к нам в этот особенный день!</p>
+        <button onclick="alert('Спасибо за подтверждение!')">Подтвердить участие</button>
+    </header>
+
+    <section id="about" data-aos="fade-up">
+        <h2>О нас</h2>
+        <p>Мы счастливы пригласить вас на нашу свадьбу!</p>
+    </section>
+
+    <section id="schedule" data-aos="fade-right">
+        <h2>Расписание</h2>
+        <ul>
+            <li>15:00 - Церемония</li>
+            <li>16:30 - Фотосессия</li>
+            <li>18:00 - Банкет</li>
+        </ul>
+    </section>
+
+    <section id="gallery" data-aos="fade-left">
+        <h2>Фотогалерея</h2>
+        <div class="gallery">
+            <img src="surie.jpg" alt="Фото 1">
+            <img src="surie.jpg" alt="Фото 2">
+            <img src="surie.jpg" alt="Фото 3">
+        </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+        <h2>Контакты</h2>
+        <p>Свяжитесь с нами по телефону: +1234567890</p>
+    </section>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Длительность анимации
+            once: true // Анимация будет срабатывать только один раз при прокрутке
+        });
+    </script>
+</body>
+
+</html>
