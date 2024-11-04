@@ -35,15 +35,23 @@
                 data.forEach(attendee => {
                     const listItem = document.createElement('li');
 
-                    listItem.setAttribute("dbid", attendee.id);
-
-                    // Создание контейнера для имени и кнопки
+                    // Создание контейнера для информации об участнике
                     const attendeeInfo = document.createElement('div');
                     attendeeInfo.classList.add('attendee-info');
 
+
                     // Создание текста с именем
-                    const nameText = document.createElement('span');
-                    nameText.textContent = attendee.name + " " + attendee.surname;
+                    const nameWish = document.createElement('div');
+                    const nameText = document.createElement('div');
+                    nameText.textContent = `${attendee.name} ${attendee.surname}`;
+
+                    // Создание текста с пожеланиями
+                    const wishesText = document.createElement('div');
+                    wishesText.textContent = `Пожелания: ${attendee.guess ? attendee.guess : ''}`;
+                    wishesText.classList.add('wishes-text'); // Добавляем класс для стилизации
+
+                    nameWish.appendChild(nameText);
+                    nameWish.appendChild(wishesText);
 
                     // Создание кнопки "Удалить"
                     const deleteButton = document.createElement('button');
@@ -54,8 +62,8 @@
                         document.getElementById('confirm-modal').style.display = 'block'; // Показываем модалку
                     };
 
-                    // Добавление имени и кнопки в контейнер
-                    attendeeInfo.appendChild(nameText);
+                    // Добавление всех элементов в контейнер
+                    attendeeInfo.appendChild(nameWish);
                     attendeeInfo.appendChild(deleteButton);
                     listItem.appendChild(attendeeInfo);
                     attendeesList.appendChild(listItem);

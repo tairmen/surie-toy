@@ -23,7 +23,8 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    opacity: 0; /* Начальная непрозрачность */
+    opacity: 0;
+    /* Начальная непрозрачность */
     transition: opacity 0.3s ease;
 }
 
@@ -34,18 +35,22 @@ body {
     max-width: 400px;
     width: 90%;
     position: relative;
-    transform: scale(0.7); /* Начальное уменьшение */
-    transition: transform 0.3s ease; /* Плавный переход для эффекта масштабирования */
+    transform: scale(0.7);
+    /* Начальное уменьшение */
+    transition: transform 0.3s ease;
+    /* Плавный переход для эффекта масштабирования */
 }
 
 /* Анимация открытия модального окна */
 .modal.show {
     display: flex;
-    opacity: 1; /* Конечная непрозрачность */
+    opacity: 1;
+    /* Конечная непрозрачность */
 }
 
 .modal-content.show {
-    transform: scale(1); /* Масштабируем до 100% */
+    transform: scale(1);
+    /* Масштабируем до 100% */
 }
 
 .close {
@@ -96,23 +101,41 @@ body {
 /* Изображение подтверждения в модальном окне */
 .confirmation-image {
     display: block;
-    width: 250px; /* Размер изображения */
+    width: 250px;
+    /* Размер изображения */
     height: auto;
-    margin: 15px auto 15px; /* Центрирование и отступ снизу */
+    margin: 15px auto 15px;
+    /* Центрирование и отступ снизу */
 }
 
 /* Модальное окно конец */
 
 header {
-    background-image: url('aydersurie.jpg'); /* Фоновое изображение */
-    background-size: cover; /* Полное покрытие */
+    background-image: url('aydersurie.jpg');
+    /* Фоновое изображение */
+    background-size: cover;
+    /* Полное покрытие */
     background-position: center;
-    background-attachment: fixed; /* Фиксируем фон */
+    background-attachment: fixed;
+    /* Фиксируем фон */
     text-align: center;
-    color: #fff; /* Белый текст для контраста */
-    padding: 100px 20px; /* Увеличенные отступы */
+    color: #fff;
+    /* Белый текст для контраста */
+    padding: 200px 20px 200px 20px;
+    /* Увеличенные отступы */
     position: relative;
 }
+
+@media (max-width: 600px) {
+    header {
+        padding: 40px 20px 100px 20px;
+    }
+    header h1 {
+        font-size: 56px !important;
+        margin-bottom: 100px;
+    }
+}
+
 
 header::before {
     content: "";
@@ -121,13 +144,15 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Полупрозрачный темный слой */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Полупрозрачный темный слой */
     z-index: 1;
 }
 
 header h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 4em; /* Увеличенный шрифт */
+    font-size: 72px;
+    /* Увеличенный шрифт */
     color: #fff;
     position: relative;
     z-index: 2;
@@ -162,22 +187,29 @@ header button:hover {
 }
 
 section {
-    padding: 40px; /* Увеличенный отступ */
-    margin: 20px auto; /* Больше пространства вокруг */
-    max-width: 1000px; /* Шире блоки */
+    padding: 40px;
+    /* Увеличенный отступ */
+    margin: 20px auto;
+    /* Больше пространства вокруг */
+    max-width: 1000px;
+    /* Шире блоки */
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Центрируем текст */
-    font-family: 'Playfair Display', serif; /* Шрифт для текста внутри блоков */
+    text-align: center;
+    /* Центрируем текст */
+    font-family: 'Playfair Display', serif;
+    /* Шрифт для текста внутри блоков */
     font-size: 1.2em;
-    color: #6b4f4b; /* Цвет текста */
+    color: #6b4f4b;
+    /* Цвет текста */
 }
 
 h2 {
     font-family: 'Great Vibes', cursive;
     color: #b5651d;
-    font-size: 2.5em; /* Увеличиваем заголовки */
+    font-size: 2.5em;
+    /* Увеличиваем заголовки */
     margin-bottom: 20px;
     text-align: center;
 }
@@ -186,7 +218,8 @@ h2 {
     display: flex;
     gap: 10px;
     justify-content: center;
-    flex-wrap: wrap; /* Позволяет изображениям переноситься на следующую строку */
+    flex-wrap: wrap;
+    /* Позволяет изображениям переноситься на следующую строку */
 }
 
 .gallery img {
@@ -204,9 +237,12 @@ h2 {
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     .gallery img {
-        width: 100%; /* Изображения занимают всю ширину блока */
-        height: auto; /* Высота автоматически подстраивается */
-        margin-bottom: 10px; /* Отступ между изображениями */
+        width: 100%;
+        /* Изображения занимают всю ширину блока */
+        height: auto;
+        /* Высота автоматически подстраивается */
+        margin-bottom: 10px;
+        /* Отступ между изображениями */
     }
 }
 

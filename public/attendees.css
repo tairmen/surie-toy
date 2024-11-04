@@ -35,6 +35,7 @@ header h1 {
     justify-content: space-between; /* Распределяем пространство между элементами */
     align-items: center; /* Центрируем элементы по вертикали */
     min-width: 320px;
+    max-width: 720px;
 }
 
 .attendee-info {
@@ -52,6 +53,12 @@ header h1 {
     color: white; /* Цвет текста кнопки */
     cursor: pointer; /* Указатель курсора при наведении */
     transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.wishes-text {
+    margin-top: 5px; /* Отступ между строками */
+    font-size: 14px;
+    color: #555; /* Цвет текста */
 }
 
 .cancel-button {

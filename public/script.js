@@ -23,6 +23,7 @@ function openConfirmationModal(message) {
     confirmationModal.classList.add("show");
     document.getElementById("firstName").value = "";
     document.getElementById("lastName").value = "";
+    document.getElementById("guess").value = "";
     setTimeout(() => {
         document.querySelector("#confirmationModal .modal-content").classList.add("show");
     }, 0);
@@ -43,6 +44,7 @@ document.getElementById("confirmationForm").addEventListener("submit", function(
 
     const name = document.getElementById("firstName").value;
     const surname = document.getElementById("lastName").value;
+    const guess = document.getElementById("guess").value;
 
     // Отправка данных на backend
     fetch('/api/confirm-attendance', {
@@ -50,7 +52,7 @@ document.getElementById("confirmationForm").addEventListener("submit", function(
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ name, surname })
+        body: JSON.stringify({ name, surname, guess })
     })
     .then(response => response.json())
     .then(data => {

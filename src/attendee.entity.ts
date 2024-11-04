@@ -15,6 +15,9 @@ export class Attendee {
   @Column()
   name: string;
 
-  @Column()
+  @Column({nullable: true})
   surname: string;
+
+  @Column({ type: "text", nullable: true})
+  guess: string
 }
