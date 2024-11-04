@@ -27,6 +27,7 @@
     </div>
 
     <script>
+        let attendeeToDelete = null; // Переменная для хранения участника, которого нужно удалить
         // Получение списка участников с backend
         fetch('/api/attendees')
             .then(response => response.json())
