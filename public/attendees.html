@@ -35,6 +35,7 @@
                 const attendeesList = document.getElementById('attendees');
                 data.forEach(attendee => {
                     const listItem = document.createElement('li');
+                    listItem.setAttribute("dbid", attendee.id);
 
                     // Создание контейнера для информации об участнике
                     const attendeeInfo = document.createElement('div');
