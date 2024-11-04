@@ -1,0 +1,89 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    color: #333;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #b5651d;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#attendees-list {
+    margin-top: 20px;
+    padding: 0;
+}
+
+#attendees {
+    list-style: none;
+    padding: 0;
+}
+
+#attendees li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex; /* Используем Flexbox для размещения элементов в строку */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Центрируем элементы по вертикали */
+    min-width: 320px;
+}
+
+.attendee-info {
+    display: flex; /* Размещение имени и кнопки в строку */
+    justify-content: space-between; /* Распределяем пространство между именем и кнопкой */
+    width: 100%; /* Устанавливаем ширину контейнера на 100% */
+}
+
+.delete-button {
+    margin-left: 10px; /* Отступ слева от кнопки */
+    padding: 5px 10px; /* Отступы для кнопки */
+    border: none; /* Убираем стандартные рамки */
+    border-radius: 3px; /* Скругляем углы */
+    background-color: #ff4d4d; /* Цвет фона кнопки */
+    color: white; /* Цвет текста кнопки */
+    cursor: pointer; /* Указатель курсора при наведении */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.cancel-button {
+    background-color: blue !important;
+}
+
+.delete-button:hover {
+    background-color: #e63939; /* Цвет фона при наведении */
+}
+
+
+.modal {
+    display: none; /* Скрыть модальное окно по умолчанию */
+    position: fixed; /* Зафиксировать модальное окно на экране */
+    z-index: 1000; /* Обеспечить, чтобы модальное окно было поверх других элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ширина 100% */
+    height: 100%; /* Высота 100% */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Центрируем модальное окно */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px; /* Ширина модального окна */
+    text-align: center; /* Центрируем текст */
+}
+
+.modal button {
+    margin: 5px;
+}
+

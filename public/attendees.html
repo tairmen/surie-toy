@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список участников</title>
+    <link rel="stylesheet" href="attendees.css">
+</head>
+
+<body>
+    <header>
+        <h1>Список участников</h1>
+    </header>
+
+    <section id="attendees-list">
+        <ul id="attendees"></ul>
+    </section>
+
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <h2>Подтверждение удаления</h2>
+            <p>Вы уверены, что хотите удалить этого участника?</p>
+            <button id="confirm-delete" class="delete-button">Удалить</button>
+            <button id="cancel-delete" class="delete-button cancel-button">Отмена</button>
+        </div>
+    </div>
+
+    <script>
+        // Получение списка участников с backend
+        fetch('/api/attendees')
+            .then(response => response.json())
+            .then(data => {
+                const attendeesList = document.getElementById('attendees');
+                data.forEach(attendee => {
+                    const listItem = document.createElement('li');
+
+                    listItem.setAttribute("dbid", attendee.id);
+
+                    // Создание контейнера для имени и кнопки
+                    const attendeeInfo = document.createElement('div');
+                    attendeeInfo.classList.add('attendee-info');
+
+                    // Создание текста с именем
+                    const nameText = document.createElement('span');
+                    nameText.textContent = attendee.name + " " + attendee.surname;
+
+                    // Создание кнопки "Удалить"
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Удалить';
+                    deleteButton.classList.add('delete-button'); // Добавление класса для стилей
+                    deleteButton.onclick = () => {
+                        attendeeToDelete = listItem; // Сохраняем элемент, который нужно удалить
+                        document.getElementById('confirm-modal').style.display = 'block'; // Показываем модалку
+                    };
+
+                    // Добавление имени и кнопки в контейнер
+                    attendeeInfo.appendChild(nameText);
+                    attendeeInfo.appendChild(deleteButton);
+                    listItem.appendChild(attendeeInfo);
+                    attendeesList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Ошибка при получении списка участников:', error);
+            });
+
+        // Обработчики событий для кнопок модального окна
+        document.getElementById('confirm-delete').onclick = () => {
+            if (attendeeToDelete) {
+                attendeeToDelete.parentNode.removeChild(attendeeToDelete);
+                fetch(`/api/attendees/${attendeeToDelete.getAttribute("dbid")}`, { method: 'DELETE' });
+            }
+            attendeeToDelete = null;
+            document.getElementById('confirm-modal').style.display = 'none'; // Закрываем модалку
+        };
+
+        document.getElementById('cancel-delete').onclick = () => {
+            attendeeToDelete = null; // Сбрасываем переменную
+            document.getElementById('confirm-modal').style.display = 'none'; // Закрываем модалку
+        };
+
+        // Закрытие модального окна при клике вне его
+        window.onclick = (event) => {
+            const modal = document.getElementById('confirm-modal');
+            if (event.target === modal) {
+                attendeeToDelete = null; // Сбрасываем переменную
+                modal.style.display = 'none'; // Закрываем модалку
+            }
+        };
+
+    </script>
+</body>
+
+</html>

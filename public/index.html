@@ -10,28 +10,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&family=Playfair+Display&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header data-aos="fade-down">
         <h1>Наша Свадьба</h1>
         <p>Присоединяйтесь к нам в этот особенный день!</p>
-        <button onclick="alert('Спасибо за подтверждение!')">Подтвердить участие</button>
+        <button onclick="openModal()">Подтвердить участие</button>
     </header>
+
+    <!-- Модальное окно для формы -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Подтверждение участия</h2>
+            <form id="confirmationForm">
+                <label for="firstName">Имя:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <label for="lastName">Фамилия:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <button type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeConfirmationModal()">&times;</span>
+            <!-- Добавление изображения -->
+            <img src="checkmark.jpg" alt="Подтверждено" class="confirmation-image">
+            <h2 id="confirmationMessage">Спасибо за подтверждение!</h2>
+        </div>
+    </div>
 
     <section id="about" data-aos="fade-up">
         <h2>О нас</h2>
-        <p>Мы счастливы пригласить вас на нашу свадьбу!</p>
+        <p>Мы, Айдер и Сурие, счастливы пригласить вас на нашу свадьбу!</p>
     </section>
 
     <section id="schedule" data-aos="fade-right">
         <h2>Расписание</h2>
         <ul>
-            <li>15:00 - Церемония</li>
-            <li>16:30 - Фотосессия</li>
-            <li>18:00 - Банкет</li>
+            <li>18:00 - Сбор гостей</li>
         </ul>
+    </section>
+
+    <section id="location" data-aos="fade-up">
+        <h2>Как добраться</h2>
+        <p>Ресторан "Сарабуз", Симферополь</p>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1409.4778816646215!2d33.994268767633!3d45.046119543411145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40eae9a5d3e7b295%3A0x35bfdc42e7b74e7b!2sMechet&#39;%20%22Yan%22Y%20Sarabuz%20Dzhamisi%22!5e0!3m2!1sen!2sua!4v1730705542630!5m2!1sen!2sua"
+                width="600" width="100%" height="400" frameborder="0" allowfullscreen="true"></iframe>
+        </div>
     </section>
 
     <section id="gallery" data-aos="fade-left">
@@ -45,7 +79,7 @@
 
     <section id="contact" data-aos="fade-up">
         <h2>Контакты</h2>
-        <p>Свяжитесь с нами по телефону: +1234567890</p>
+        <p>Свяжитесь с нами по телефону: +79788767385</p>
     </section>
 
     <script src="script.js"></script>
