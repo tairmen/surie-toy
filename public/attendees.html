@@ -35,7 +35,7 @@
                 const attendeesList = document.getElementById('attendees');
                 console.log('data.length', data.length)
                 document.getElementById("total-amount").innerHTML = data.length;
-                data.forEach(attendee => {
+                data.forEach((attendee, i) => {
                     const listItem = document.createElement('li');
                     listItem.setAttribute("dbid", attendee.id);
 
@@ -47,7 +47,7 @@
                     // Создание текста с именем
                     const nameWish = document.createElement('div');
                     const nameText = document.createElement('div');
-                    nameText.textContent = `${attendee.name} ${attendee.surname}`;
+                    nameText.textContent = `${i+1}. ${attendee.name} ${attendee.surname}`;
 
                     // Создание текста с пожеланиями
                     const wishesText = document.createElement('div');
