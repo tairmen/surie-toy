@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <h1>Список участников</h1>
+        <h1>Список участников (Количество - <span id="total-amount"></span>)</h1>
     </header>
 
     <section id="attendees-list">
@@ -33,6 +33,8 @@
             .then(response => response.json())
             .then(data => {
                 const attendeesList = document.getElementById('attendees');
+                console.log('data.length', data.length)
+                document.getElementById("total-amount").innerHTML = data.length;
                 data.forEach(attendee => {
                     const listItem = document.createElement('li');
                     listItem.setAttribute("dbid", attendee.id);
