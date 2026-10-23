@@ -1,100 +1,23 @@
-<!DOCTYPE html>
-<html lang="ru">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.png" type="image/png">
-    <title>Ильяс и Султание — приглашение на свадьбу</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;500&family=Playfair+Display&display=swap"
-        rel="stylesheet">
-</head>
-
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#5f2035"><meta name="description" content="Ильяс и Султание приглашают вас: никях 5 ноября и свадьба 14 ноября 2026 года в Симферополе."><title>Ильяс & Султание · Наша история</title><link rel="icon" href="favicon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css?v=3"><script src="script.js?v=3" defer></script></head>
 <body>
-    <header data-aos="fade-down">
-        <h1>Ильяс и Султание</h1>
-        <p>Присоединяйтесь к нам в этот особенный день!</p>
-        <p>Никях · 5 ноября 2026 · 12:00<br>Свадьба · 14 ноября 2026 · 18:00</p>
-        <button onclick="openModal()">Подтвердить участие</button>
-    </header>
-
-    <!-- Модальное окно для формы -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Подтверждение участия</h2>
-            <form id="confirmationForm">
-                <label for="firstName">Имя:</label>
-                <input type="text" id="firstName" name="firstName" required>
-                <label for="lastName">Фамилия:</label>
-                <input type="text" id="lastName" name="lastName" required>
-                <label for="guess">Пожелания:</label>
-                <input type="text" id="guess" name="guess">
-                <button type="submit">Отправить</button>
-            </form>
-        </div>
-    </div>
-
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeConfirmationModal()">&times;</span>
-            <!-- Добавление изображения -->
-            <img src="checkmark.jpg" alt="Подтверждено" class="confirmation-image">
-            <h2 id="confirmationMessage">Спасибо за подтверждение!</h2>
-        </div>
-    </div>
-
-    <section id="about" data-aos="fade-up">
-        <h2>О нас</h2>
-        <p>Мы, Ильяс и Султание, счастливы пригласить вас разделить с нами радость создания нашей семьи! Никях состоится 5 ноября 2026 года, а свадьба — 14 ноября 2026 года. Будем рады видеть вас рядом в эти особенные дни!</p>
-    </section>
-
-    <section id="schedule" data-aos="fade-right">
-        <h2>Расписание</h2>
-        <ul>
-            <li><strong>5 ноября 2026, 12:00</strong> — Никях в Соборной мечети</li>
-            <li><strong>14 ноября 2026, 18:00</strong> — Свадьба в банкетном зале «Matisse»</li>
-        </ul>
-    </section>
-
-    <section id="location" data-aos="fade-up">
-        <h2>Как добраться</h2>
-        <h3>Никях · 5 ноября 2026, 12:00</h3>
-        <p>Соборная мечеть<br>Республика Крым, Симферополь, Ялтинская улица, 22</p>
-        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%9A%D1%80%D1%8B%D0%BC%2C%20%D0%A1%D0%B8%D0%BC%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D0%AF%D0%BB%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2022" target="_blank" rel="noopener noreferrer">Открыть на карте</a></p>
-        <div class="map">
-            <iframe title="Соборная мечеть" src="https://maps.google.com/maps?q=%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%9A%D1%80%D1%8B%D0%BC%2C%20%D0%A1%D0%B8%D0%BC%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D0%AF%D0%BB%D1%82%D0%B8%D0%BD%D1%81%D0%BA%D0%B0%D1%8F%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2C%2022&amp;output=embed" width="600" height="400" style="border:0" loading="lazy" allowfullscreen></iframe>
-        </div>
-        <h3>Свадьба · 14 ноября 2026, 18:00</h3>
-        <p>Банкетный зал «Matisse»<br>Республика Крым, Симферополь, улица 60 лет Октября, 33</p>
-        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%9A%D1%80%D1%8B%D0%BC%2C%20%D0%A1%D0%B8%D0%BC%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2060%20%D0%BB%D0%B5%D1%82%20%D0%9E%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F%2C%2033" target="_blank" rel="noopener noreferrer">Открыть на карте</a></p>
-        <div class="map">
-            <iframe title="Банкетный зал «Matisse»" src="https://maps.google.com/maps?q=%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%20%D0%9A%D1%80%D1%8B%D0%BC%2C%20%D0%A1%D0%B8%D0%BC%D1%84%D0%B5%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D1%8C%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%2060%20%D0%BB%D0%B5%D1%82%20%D0%9E%D0%BA%D1%82%D1%8F%D0%B1%D1%80%D1%8F%2C%2033&amp;output=embed" width="600" height="400" style="border:0" loading="lazy" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <section id="gallery" data-aos="fade-left">
-        <h2>Фотогалерея</h2>
-        <div class="gallery">
-            <img src="ilyas-sultanie-1.jpg" alt="Ильяс и Султание вместе" loading="lazy">
-            <img src="ilyas-sultanie-2.jpg" alt="Танец Ильяса и Султание" loading="lazy">
-            <img src="ilyas-sultanie-3.jpg" alt="Ильяс и Султание" loading="lazy">
-        </div>
-    </section>
-
-<script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000, // Длительность анимации
-            once: true // Анимация будет срабатывать только один раз при прокрутке
-        });
-    </script>
-</body>
-
-</html>
+<a class="skip" href="#main">К приглашению</a>
+<dialog id="envelope" class="envelope" aria-labelledby="envelope-title"><div class="envelope-inner"><p class="eyebrow">Лично в ваши руки</p><h2 id="envelope-title">Вам приглашение</h2><p>На два особенных дня<br>одной большой истории</p><button id="open-invitation" class="seal" aria-label="Открыть приглашение">И<span>&</span>С</button><p class="small">Нажмите на печать, чтобы открыть</p><p class="envelope-names">Ильяс & Султание</p><span class="envelope-date">НОЯБРЬ · 2026</span></div></dialog>
+<header class="navigation"><a href="#home" class="monogram" aria-label="Ильяс и Султание — начало">И <i>&</i> С</a><nav aria-label="Разделы приглашения"><a href="#story">Наша история</a><a href="#events">Два события</a><a href="#gallery">Моменты</a><a href="#rsvp" class="nav-rsvp">Я буду</a></nav><button id="music" class="music" aria-pressed="false" title="Включить музыку">♫ <span>Музыка</span></button></header>
+<main id="main">
+<section class="hero" id="home"><div class="hero-copy"><p class="eyebrow">Приглашение на нашу свадьбу</p><h1>Ильяс<br><em>&</em> Султание</h1><p class="hero-note">Среди тысяч встреч<br>мы нашли друг друга.<br>И хотим разделить это счастье с вами.</p><div class="hero-dates"><span>05.11.2026<small>Никях</small></span><i>&</i><span>14.11.2026<small>Свадьба</small></span></div><a class="button" href="#rsvp">Разделить этот день <span>↗</span></a><a class="scroll-link" href="#countdown">Листайте нашу историю ↓</a></div><div class="hero-photo" role="img" aria-label="Ильяс и Султание вместе"><span class="photo-caption">Начало нашего «навсегда»</span></div></section>
+<section id="countdown" class="countdown section reveal"><div><p class="eyebrow" id="countdown-label">До нашего никяха осталось</p><h2>Скоро будем <em>рядом</em></h2></div><div class="clock" aria-label="Обратный отсчёт"><div><b id="days">00</b><span>дней</span></div><i>:</i><div><b id="hours">00</b><span>часов</span></div><i>:</i><div><b id="minutes">00</b><span>минут</span></div><i>:</i><div><b id="seconds">00</b><span>секунд</span></div></div><p id="countdown-note" class="small">Симферополь · время событий UTC+3</p></section>
+<section id="story" class="section story reveal"><div class="section-heading"><p class="eyebrow">01 / Немного о нас</p><h2>Всё началось<br>с простого <em>«привет»</em></h2><p>Иногда одна случайная встреча становится самым важным событием в жизни.</p></div><div class="story-layout"><figure class="story-photo"><img src="ilyas-sultanie-2.jpg" alt="Ильяс и Султание танцуют" loading="lazy"><figcaption>Наше любимое место — рядом друг с другом</figcaption></figure><div class="timeline"><article><span>01</span><div><h3>Однажды в парке</h3><p>Обычная прогулка, случайный взгляд и первое «привет». Мы ещё не знали, что однажды будем вспоминать этот день с такой улыбкой.</p></div></article><article><span>02</span><div><h3>Ещё немного вместе</h3><p>Потом были долгие разговоры, прогулки и желание не прощаться. Простые дни стали особенными, потому что мы были рядом.</p></div></article><article><span>03</span><div><h3>Одно «да» на двоих</h3><p>Теперь начинается новая глава — наша семья. И нам очень хочется, чтобы в её начале были вы.</p></div></article></div></div></section>
+<section class="quote-band reveal"><span>«</span><blockquote>Счастье — когда дорога домой<br>ведёт к одному человеку.</blockquote><p>Ильяс & Султание</p></section>
+<section id="events" class="section reveal"><div class="section-heading centered"><p class="eyebrow">02 / Сохраните эти даты</p><h2>Два дня. <em>Одна любовь.</em></h2><p>Будем счастливы видеть вас на никяхе и на нашей свадьбе.</p></div><div class="event-grid"><article class="event-card"><div class="event-number">05<span>НОЯБРЯ · ЧЕТВЕРГ</span></div><p class="eyebrow">Начало в 12:00 · 2026</p><h3>Никях</h3><p>Тихий, светлый день,<br>с которого начнётся наша семья.</p><div class="venue"><strong>Соборная мечеть</strong><address>Республика Крым, Симферополь,<br>Ялтинская улица, 22</address></div><div class="event-actions"><a class="button" href="https://www.google.com/maps/search/?api=1&query=Соборная+мечеть+Симферополь+Ялтинская+22" target="_blank" rel="noopener">Маршрут ↗</a><button class="text-button" data-calendar="nikah">+ В календарь</button></div><details class="map-details"><summary>Посмотреть карту</summary><iframe title="Соборная мечеть на карте" loading="lazy" src="https://maps.google.com/maps?q=Соборная+мечеть+Симферополь+Ялтинская+22&output=embed"></iframe></details></article><article class="event-card event-wedding"><div class="event-number">14<span>НОЯБРЯ · СУББОТА</span></div><p class="eyebrow">Начало в 18:00 · 2026</p><h3>Свадьба</h3><p>Тёплые встречи, объятия<br>и вечер, который запомним вместе.</p><div class="venue"><strong>Банкетный зал «Matisse»</strong><address>Республика Крым, Симферополь,<br>улица 60 лет Октября, 33</address></div><div class="event-actions"><a class="button" href="https://maps.app.goo.gl/L7HzpWads15gdFsC6" target="_blank" rel="noopener">Маршрут ↗</a><button class="text-button" data-calendar="wedding">+ В календарь</button></div><details class="map-details"><summary>Посмотреть карту</summary><iframe title="Ресторан Matisse на карте" loading="lazy" src="https://maps.google.com/maps?q=44.9077502,34.0774793&z=16&output=embed"></iframe></details></article></div></section>
+<section id="gallery" class="section gallery-section reveal"><div class="section-heading"><p class="eyebrow">03 / Наши моменты</p><h2>Хочется поставить<br>это время <em>на паузу</em></h2><p>Нажмите на фотографию, чтобы рассмотреть поближе.</p></div><div class="gallery"><button class="gallery-item" data-photo="0"><img src="ilyas-sultanie-1.jpg" alt="Ильяс и Султание рядом" loading="lazy"><span>01 / Вместе</span></button><button class="gallery-item" data-photo="1"><img src="ilyas-sultanie-2.jpg" alt="Наш танец" loading="lazy"><span>02 / Ближе</span></button><button class="gallery-item" data-photo="2"><img src="ilyas-sultanie-3.jpg" alt="Наш счастливый момент" loading="lazy"><span>03 / Навсегда</span></button></div></section>
+<section id="quiz" class="section quiz-section reveal"><div><p class="eyebrow">04 / Давайте поиграем</p><h2>Как хорошо вы<br>знаете <em>нашу историю?</em></h2><p>Пять маленьких вопросов.<br>Все ответы спрятаны в приглашении.</p></div><div class="quiz-card"><div class="quiz-top"><span id="quiz-progress">Вопрос 1 из 5</span><span>♡</span></div><div class="progress-track"><div id="quiz-bar"></div></div><h3 id="quiz-question"></h3><div id="quiz-options"></div><p id="quiz-feedback" role="status"></p><button id="quiz-next" class="text-button" hidden>Следующий вопрос →</button></div></section>
+<section id="rsvp" class="rsvp-section reveal"><div class="section rsvp-layout"><div><p class="eyebrow">05 / Очень ждём вас</p><h2>Вы будете<br><em>с нами?</em></h2><p>Пожалуйста, заполните небольшую анкету.<br>Так нам будет проще подготовить праздник для каждого из вас.</p><span class="rsvp-flower" aria-hidden="true">✳</span><p class="small">Ваш ответ и пожелания увидят только молодожёны.</p></div><form id="rsvp-form"><div class="field-pair"><label>Ваше имя<input name="name" autocomplete="given-name" maxlength="80" required placeholder="Имя"></label><label>Фамилия<input name="surname" autocomplete="family-name" maxlength="80" placeholder="Фамилия"></label></div><fieldset><legend>Сможете прийти?</legend><div class="choice-row"><label><input type="radio" name="attending" value="yes" checked><span>С радостью буду ♡</span></label><label><input type="radio" name="attending" value="no"><span>Не получится</span></label></div></fieldset><div id="attendance-fields"><label>На какое событие?<select name="events"><option value="both">Никях и свадьба</option><option value="nikah">Только никях · 5 ноября</option><option value="wedding">Только свадьба · 14 ноября</option></select></label><div class="field-pair"><label>Всего гостей, включая вас<select name="guests"><option value="1">1 гость</option><option value="2">2 гостя</option><option value="3">3 гостя</option><option value="4">4 гостя</option><option value="5">5 гостей</option><option value="6">6 гостей</option><option value="7">7 гостей</option><option value="8">8 гостей</option><option value="9">9 гостей</option><option value="10">10 гостей</option></select></label><label>Песня для вечера<input name="song" maxlength="200" placeholder="Исполнитель и название"></label></div><label>Питание и аллергии<input name="dietary" maxlength="300" placeholder="Если есть особенности, напишите здесь"></label></div><label>Пара слов для нас<textarea name="guess" rows="3" maxlength="1200" placeholder="Пожелание или имена тех, кто придёт с вами"></textarea></label><button type="submit" class="button">Отправить ответ ↗</button><p id="rsvp-status" class="form-status" role="status" aria-live="polite"></p></form></div></section>
+<section id="wishes" class="section reveal"><div class="section-heading centered"><p class="eyebrow">06 / Слова, которые останутся</p><h2>Оставьте нам <em>пожелание</em></h2><p>Мы сохраним ваши тёплые слова, чтобы возвращаться к ним спустя годы.</p></div><div id="wish-list" class="wish-list"><p class="empty-state">Здесь скоро появятся ваши пожелания. Пусть первое будет от вас ♡</p></div><form id="wish-form" class="compact-form"><label>Ваше имя<input name="author" maxlength="80" required placeholder="Как вас зовут?"></label><label>Ваше пожелание<textarea name="message" maxlength="1200" rows="3" required placeholder="Самые важные слова — от сердца"></textarea></label><p class="small">Пожелание появится на сайте после подтверждения молодожёнами.</p><button class="button" type="submit">Отправить пожелание ♡</button><p class="form-status" id="wish-status" role="status"></p></form></section>
+<section id="album" class="album-section reveal"><div class="section"><div class="album-intro"><div><p class="eyebrow">07 / Вашими глазами</p><h2>Соберём этот день<br><em>по кусочкам</em></h2><p>Улыбки, объятия, случайные кадры.<br>Добавляйте фотографии в наш общий альбом.</p><button id="share-album" class="text-button">Поделиться альбомом ↗</button></div><div class="qr-card"><img src="/api/album-qr" alt="QR-код общего фотоальбома" width="140" height="140" loading="lazy"><span>Сохраните для праздника</span></div></div><form id="photo-form" class="photo-upload"><label>Ваше имя<input name="author" required maxlength="80" placeholder="Автор фотографии"></label><label class="file-picker">Выберите фотографию<input name="photo" type="file" accept="image/jpeg,image/png,image/webp" required><span>JPEG, PNG или WebP · до 12 МБ</span></label><button type="submit" class="button">Загрузить фото ↑</button><p id="photo-status" class="form-status" role="status"></p></form><p class="small">Загружайте фотографии, которыми согласны поделиться с гостями. Снимки появятся после подтверждения.</p><div id="guest-photos" class="guest-photos"></div></div></section>
+<section id="faq" class="section faq-section reveal"><div><p class="eyebrow">08 / Маленькие детали</p><h2>Возможно,<br>вы <em>хотели спросить</em></h2></div><div class="faq-list"><details><summary>Можно прийти на оба события?</summary><p>Да, будем рады видеть вас и 5 ноября на никяхе, и 14 ноября на свадьбе. Выберите оба события в анкете.</p></details><details><summary>Есть ли дресс-код?</summary><p>Выбирайте наряд, в котором вам будет красиво и комфортно. Самое главное — ваше присутствие и хорошее настроение.</p><div class="swatches" aria-label="Цвета нашего приглашения: молочный, бежевый, розовый, бордовый"><i></i><i></i><i></i><i></i></div><p class="small">Палитра приглашения для вдохновения, без обязательных требований.</p></details><details><summary>Можно прийти с детьми?</summary><p>Укажите детей в общем количестве гостей и напишите об этом в анкете, чтобы мы могли учесть ваш состав.</p></details><details><summary>Что подарить?</summary><p>Ваше присутствие — уже радость для нас. Если хочется уточнить пожелания к подаркам, свяжитесь с нами лично.</p></details><details><summary>Как добраться и где припарковаться?</summary><p>В карточках событий есть точные адреса и маршруты. Возможность парковки рядом с площадками лучше уточнить перед поездкой.</p></details><details><summary>Кто увидит мою анкету и фотографии?</summary><p>Анкету увидят только молодожёны. Пожелания и фотографии станут доступны гостям после подтверждения в панели молодожёнов.</p></details></div></section>
+<footer><p class="eyebrow">Спасибо, что вы есть в нашей истории</p><p class="footer-names">Ильяс <em>&</em> Султание</p><p>05 & 14 ноября 2026 · Симферополь</p><a href="#home">Наверх ↑</a></footer>
+</main>
+<dialog id="lightbox" class="lightbox" aria-label="Просмотр фотографий"><button class="lightbox-close" aria-label="Закрыть фотографию">×</button><button id="photo-prev" class="photo-arrow" aria-label="Предыдущее фото">‹</button><figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure><button id="photo-next" class="photo-arrow" aria-label="Следующее фото">›</button></dialog>
+<div id="toast" role="status" aria-live="polite"></div>
+</body></html>

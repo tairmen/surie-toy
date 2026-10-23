@@ -18,6 +18,9 @@ export class Attendee {
   @Column({nullable: true})
   surname: string;
 
+  @Column({ type: 'jsonb', nullable: true })
+  details: { events: string; guests: number; dietary: string; song: string; attending: boolean };
+
   @Column({ type: "text", nullable: true})
   guess: string
 }

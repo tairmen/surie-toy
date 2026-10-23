@@ -1,4 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Post, Res } from '@nestjs/common';
+import { requireAdmin } from './admin-auth';
+import { Body, Controller, Delete, Get, Headers, Param, ParseIntPipe, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { join } from 'path';
 import { AppService } from './app.service';
@@ -25,12 +26,14 @@ export class AppController {
   }
 
   @Get('api/attendees')
-  getList() {
+  getList(@Headers('x-admin-key') key: string) {
+    requireAdmin(key);
     return this.appService.findAll();
   }
 
   @Delete('api/attendees/:id')
-  remove(@Param('id') id: number) {
+  remove(@Param('id', ParseIntPipe) id: number, @Headers('x-admin-key') key: string) {
+    requireAdmin(key);
     return this.appService.remove(+id);
   }
 }

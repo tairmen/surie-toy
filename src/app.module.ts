@@ -1,3 +1,6 @@
+import { GuestEntry } from './guest-entry.entity';
+import { WeddingService } from './wedding.service';
+import { WeddingController } from './wedding.controller';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -10,14 +13,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Attendee]),
+    TypeOrmModule.forFeature([Attendee, GuestEntry]),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'), // Adjust to your folder
     }),
     ConfigModule.forRoot({ isGlobal: true }), // Load environment variables globally
     DatabaseModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, WeddingController],
+  providers: [AppService, WeddingService],
 })
 export class AppModule { }

@@ -71,3 +71,15 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+
+## Interactive wedding invitation
+
+The public invitation includes an envelope, countdown (UTC+3), calendar exports, gallery, optional locally synthesized music, quiz, RSVP, wishes and a moderated guest photo album.
+
+- Set `WEDDING_ADMIN_KEY` in the server `.env` to a long random secret. Open `/list` to view RSVPs, export CSV, and approve/delete wishes and photographs. Previous RSVPs remain available. The key is never exposed in frontend source.
+- TypeORM adds nullable RSVP `details` and the `wedding_guest_entries` table through the existing synchronization configuration. Back up data before deployment.
+- Guest uploads are stored in `data/wedding-uploads/`, outside public assets and Git. Back up this directory together with PostgreSQL. Only approved photos are accessible without the admin key.
+- Nginx must allow a 13 MB request body and set `X-Real-IP` from `$remote_addr`. Individual photographs are limited to 12 MB; total uploads are capped at 300 MB. Requests are limited per IP and endpoint.
+- No external music service or QR service is used. Replace the sample park story and quiz text in `public/index.html` and `public/script.js` when desired.
+- Run `npm run build`, `npm test -- --runInBand` and `npm run test:e2e -- --runInBand`. Tests use isolated repository doubles and do not connect to the production database.
