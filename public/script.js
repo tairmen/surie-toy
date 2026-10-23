@@ -62,7 +62,7 @@ let touchStart;
 lightbox.addEventListener('touchstart', event => { touchStart = event.changedTouches[0].clientX; }, { passive: true });
 lightbox.addEventListener('touchend', event => { const delta = event.changedTouches[0].clientX - touchStart; if (Math.abs(delta) > 60) changePhoto(delta > 0 ? -1 : 1); }, { passive: true });
 const questions = [
-  { q: 'Где началась наша история?', options: ['На прогулке в парке','В самолёте','На концерте'], answer: 0, note: 'Одна прогулка и одно «привет» — так всё и началось.' },
+  { q: 'Где началась наша история?', options: ['В супермаркете «Ашан»','В самолёте','На концерте'], answer: 0, note: 'Обычный поход за покупками в «Ашан» стал началом нашей истории.' },
   { q: 'Когда состоится наш никях?', options: ['14 ноября','5 ноября','5 декабря'], answer: 1, note: '5 ноября 2026 года, в 12:00.' },
   { q: 'Где мы будем отмечать свадьбу?', options: ['В парке','В банкетном зале «Matisse»','У моря'], answer: 1, note: 'Ждём вас в «Matisse» 14 ноября.' },
   { q: 'Во сколько начинается свадьба?', options: ['В 12:00','В 16:00','В 18:00'], answer: 2, note: '14 ноября в 18:00 — самое время для тёплого вечера.' },
