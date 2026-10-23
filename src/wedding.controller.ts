@@ -21,7 +21,7 @@ export class WeddingController {
     res.type(image.mime).sendFile(image.path);
   }
   @Get('album-qr') async qr(@Res() res: Response) {
-    const svg = await QRCode.toString('http://aydersurietoy.com/#album', { type: 'svg', margin: 2, color: { dark: '#5f2035', light: '#fffdf9' } });
+    const svg = await QRCode.toString(`${(process.env.WEDDING_PUBLIC_URL || 'http://157.230.121.197').replace(/\/$/, '')}/#album`, { type: 'svg', margin: 2, color: { dark: '#5f2035', light: '#fffdf9' } });
     res.type('image/svg+xml').send(svg);
   }
   @Get('admin/entries') entries(@Headers('x-admin-key') key: string) { requireAdmin(key); return this.wedding.all(); }

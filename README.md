@@ -83,3 +83,5 @@ The public invitation includes an envelope, countdown (UTC+3), calendar exports,
 - Nginx must allow a 13 MB request body and set `X-Real-IP` from `$remote_addr`. Individual photographs are limited to 12 MB; total uploads are capped at 300 MB. Requests are limited per IP and endpoint.
 - No external music service or QR service is used. Replace the sample park story and quiz text in `public/index.html` and `public/script.js` when desired.
 - Run `npm run build`, `npm test -- --runInBand` and `npm run test:e2e -- --runInBand`. Tests use isolated repository doubles and do not connect to the production database.
+
+Set `WEDDING_PUBLIC_URL` to the working public origin for the album QR code. It defaults to the droplet IP until the wedding domain has working DNS.
