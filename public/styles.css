@@ -111,11 +111,11 @@ body {
 /* Модальное окно конец */
 
 header {
-    background-image: url('ilyas-sultanie-1.jpg');
+    background-image: url('ilyas-sultanie-hero.jpg');
     /* Фоновое изображение */
     background-size: cover;
     /* Полное покрытие */
-    background-position: center;
+    background-position: center top;
     background-attachment: scroll;
     /* Фиксируем фон */
     text-align: center;
