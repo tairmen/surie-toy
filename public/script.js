@@ -89,11 +89,34 @@ $('#wish-form').addEventListener('submit', event => { event.preventDefault();con
 async function loadPhotos() { try { const photos=await request('/api/photos');if (!photos.length) {$('#guest-photos').textContent='Первые кадры появятся здесь после праздника. Можно начать альбом уже сейчас.';return;}const set=photos.map(photo=>({src:`/api/photos/${photo.id}/image`,caption:`Фото: ${photo.author}`}));$('#guest-photos').replaceChildren(...photos.map((photo,index)=>{const button=document.createElement('button');button.type='button';const img=document.createElement('img');img.src=set[index].src;img.alt=set[index].caption;img.loading='lazy';const span=document.createElement('span');span.textContent=photo.author;button.append(img,span);button.addEventListener('click',()=>showPhoto(set,index));return button;}));}catch{$('#guest-photos').textContent='Фотоальбом пока не загрузился. Попробуйте обновить страницу позже.';} }
 $('#photo-form').addEventListener('submit', event=>{event.preventDefault();const form=event.currentTarget,data=new FormData(form),file=data.get('photo');submitForm(form,'photo-status',async()=>{if(!file.size||file.size>12*1024*1024)throw new Error('Выберите фотографию размером до 12 МБ.');const response=await request('/api/photos',{method:'POST',headers:{'Content-Type':file.type,'X-Photo-Author':encodeURIComponent(data.get('author'))},body:file});status('photo-status',response.message);form.reset();});});
 $('#share-album').addEventListener('click',async()=>{const url=`${location.origin}/#album`;try{if(navigator.share){await navigator.share({title:'Фотоальбом Ильяса и Султание',url});return;}if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(url);else{const field=document.createElement('textarea');field.value=url;field.style.position='fixed';field.style.opacity='0';document.body.append(field);field.select();if(!document.execCommand('copy'))throw new Error();field.remove();}toast('Ссылка на альбом скопирована');}catch(error){if(error.name!=='AbortError')toast(`Ссылка на альбом: ${url}`);}});
-// A quiet original music-box melody, created locally after an explicit click.
-let audioContext, musicGain, musicTimer, melodyStep=0;
-const melody=[261.63,329.63,392,523.25,440,392,329.63,293.66,261.63,329.63,392,440,392,329.63,293.66,261.63];
-function musicNote(){const now=audioContext.currentTime;const oscillator=audioContext.createOscillator(),gain=audioContext.createGain();oscillator.type='sine';oscillator.frequency.value=melody[melodyStep++%melody.length];gain.gain.setValueAtTime(0,now);gain.gain.linearRampToValueAtTime(.17,now+.03);gain.gain.exponentialRampToValueAtTime(.001,now+1.7);oscillator.connect(gain);gain.connect(musicGain);oscillator.start(now);oscillator.stop(now+1.8);}
-async function stopMusic(){clearInterval(musicTimer);if(audioContext)await audioContext.suspend();$('#music').setAttribute('aria-pressed','false');$('#music').title='Включить музыку';}
-$('#music').addEventListener('click',async()=>{try{if($('#music').getAttribute('aria-pressed')==='true'){await stopMusic();return;}const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio){toast('Ваш браузер не поддерживает музыку.');return;}if(!audioContext){audioContext=new Audio();musicGain=audioContext.createGain();musicGain.gain.value=.3;musicGain.connect(audioContext.destination);}await audioContext.resume();musicNote();musicTimer=setInterval(musicNote,850);$('#music').setAttribute('aria-pressed','true');$('#music').title='Выключить музыку';}catch{toast('Не удалось включить музыку. Попробуйте ещё раз.');}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden&&$('#music').getAttribute('aria-pressed')==='true')stopMusic();});
+// Music starts only after the guest presses the button.
+const weddingMusic = new Audio('wedding-music.mp3');
+weddingMusic.preload = 'none';
+weddingMusic.loop = true;
+weddingMusic.volume = .35;
+function stopMusic() {
+  weddingMusic.pause();
+  $('#music').setAttribute('aria-pressed','false');
+  $('#music').title = 'Включить музыку';
+}
+$('#music').addEventListener('click', async () => {
+  const button = $('#music');
+  if (!weddingMusic.paused) { stopMusic(); return; }
+  button.disabled = true;
+  try {
+    await weddingMusic.play();
+    button.setAttribute('aria-pressed','true');
+    button.title = 'Выключить музыку';
+  } catch {
+    stopMusic();
+    toast('Не удалось включить музыку. Попробуйте ещё раз.');
+  } finally { button.disabled = false; }
+});
+weddingMusic.addEventListener('error', () => {
+  stopMusic();
+  toast('Музыка пока недоступна. Попробуйте обновить страницу.');
+});
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && !weddingMusic.paused) stopMusic();
+});
 loadWishes();loadPhotos();
