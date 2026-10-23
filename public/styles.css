@@ -111,12 +111,12 @@ body {
 /* Модальное окно конец */
 
 header {
-    background-image: url('aydersurie.jpg');
+    background-image: url('ilyas-sultanie-1.jpg');
     /* Фоновое изображение */
     background-size: cover;
     /* Полное покрытие */
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     /* Фиксируем фон */
     text-align: center;
     color: #fff;
@@ -224,8 +224,9 @@ h2 {
 
 .gallery img {
     width: 200px;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    aspect-ratio: 2 / 3;
+    object-fit: contain;
     border-radius: 8px;
     transition: transform 0.3s;
 }
@@ -267,4 +268,14 @@ h2 {
     width: 100%;
     height: 400px;
     max-width: 600px;
+}
+#schedule ul { list-style: none; }
+#schedule li + li { margin-top: 16px; }
+#location h3 { margin-top: 24px; }
+#location a { color: #9b5016; }
+@media (max-width: 600px) {
+    header { padding: 240px 20px 48px; background-position: center 35%; }
+    header h1 { font-size: 42px !important; margin-bottom: 20px; line-height: 1.2; }
+    header p { font-size: 1.15em; }
+    section { padding: 28px 20px; margin: 16px 12px; }
 }
